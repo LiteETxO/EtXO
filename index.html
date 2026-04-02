@@ -1,0 +1,2300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ETxO Technologies PLC — Converting Ethiopia's abundant hydropower into globally liquid digital assets through Bitcoin mining and world-class data center infrastructure." />
+  <meta property="og:title" content="ETxO Technologies — Powering Ethiopia's Digital Future" />
+  <meta property="og:description" content="Bitcoin mining and digital infrastructure company based in Ethiopia. Converting clean hydropower into globally tradable digital assets." />
+  <meta property="og:type" content="website" />
+  <title>ETxO Technologies — Powering Ethiopia's Digital Future</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --teal: #00BCD4;
+      --teal-light: #26C6DA;
+      --teal-dark: #0097A7;
+      --navy: #0D1B3E;
+      --navy-deep: #0d1b2a;
+      --navy-mid: #132244;
+      --gold: #F5C518;
+      --gold-light: #FFD740;
+      --white: #FFFFFF;
+      --gray-light: #f5f5f5;
+      --gray-mid: #e0e0e0;
+      --gray-text: #555;
+      --gray-dark: #333;
+      --font-body: 'Inter', sans-serif;
+      --font-display: 'Space Grotesk', sans-serif;
+      --radius-sm: 8px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 40px;
+      --shadow-card: 0 8px 32px rgba(0,0,0,0.12);
+      --shadow-hover: 0 16px 48px rgba(0,0,0,0.2);
+      --transition: all 0.3s ease;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--gray-dark);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--navy);
+    }
+
+    .section-title.light {
+      color: var(--white);
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--gray-text);
+      margin-top: 16px;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+
+    .section-subtitle.light {
+      color: rgba(255,255,255,0.75);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      box-shadow: 0 4px 20px rgba(0,188,212,0.35);
+    }
+
+    .btn-primary:hover {
+      background: var(--teal-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,188,212,0.5);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--white);
+      color: var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    /* =============================================
+       NAVIGATION
+    ============================================= */
+    #navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 0;
+      transition: var(--transition);
+    }
+
+    #navbar.scrolled {
+      background: rgba(13, 27, 62, 0.97);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-icon svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .logo-text {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--teal);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover { color: var(--white); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      padding: 10px 24px;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      background: var(--teal-light);
+      transform: translateY(-1px);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: var(--transition);
+    }
+
+    /* =============================================
+       HERO SECTION
+    ============================================= */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0d2137 0%, var(--navy) 40%, #0a3d4e 80%, var(--teal-dark) 100%);
+    }
+
+    .hero-bg-shapes {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .hero-circle-1 {
+      position: absolute;
+      width: 600px;
+      height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,188,212,0.15) 0%, transparent 70%);
+      top: -200px;
+      right: -100px;
+    }
+
+    .hero-circle-2 {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,188,212,0.08) 0%, transparent 70%);
+      bottom: -100px;
+      left: -50px;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,188,212,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,188,212,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+      width: 100%;
+      padding: 120px 0 80px;
+    }
+
+    .hero-text { }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,188,212,0.15);
+      border: 1px solid rgba(0,188,212,0.3);
+      border-radius: 50px;
+      padding: 8px 18px;
+      margin-bottom: 28px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--teal);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.85); }
+    }
+
+    .hero-badge span {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--teal-light);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+
+    .hero-title .accent {
+      color: var(--teal-light);
+      display: block;
+    }
+
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 48px;
+    }
+
+    .hero-stat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .hero-stat-value {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--teal-light);
+      line-height: 1;
+    }
+
+    .hero-stat-label {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-facility-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(0,188,212,0.25);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .facility-illustration {
+      height: 340px;
+      background: linear-gradient(135deg, #0a2a3a 0%, #0d3a4a 40%, #0d4a5a 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Mining rig SVG illustration */
+    .facility-illustration::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 30px,
+          rgba(0,188,212,0.04) 30px,
+          rgba(0,188,212,0.04) 31px
+        ),
+        repeating-linear-gradient(
+          90deg,
+          transparent,
+          transparent 30px,
+          rgba(0,188,212,0.04) 30px,
+          rgba(0,188,212,0.04) 31px
+        );
+    }
+
+    .mining-rigs-svg {
+      position: relative;
+      z-index: 1;
+    }
+
+    .facility-card-footer {
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .facility-card-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      font-weight: 500;
+    }
+
+    .facility-card-status {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      color: #4CAF50;
+      font-weight: 600;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      background: #4CAF50;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    .floating-badge {
+      position: absolute;
+      background: var(--navy);
+      border: 1px solid rgba(0,188,212,0.3);
+      border-radius: var(--radius-md);
+      padding: 12px 16px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .floating-badge-1 {
+      top: -16px;
+      right: -16px;
+    }
+
+    .floating-badge-2 {
+      bottom: 60px;
+      left: -20px;
+    }
+
+    .floating-badge .badge-value {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--teal-light);
+    }
+
+    .floating-badge .badge-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+
+    /* =============================================
+       ABOUT SECTION
+    ============================================= */
+    #about {
+      padding: 100px 0;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-deco-1 {
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 320px;
+      height: 320px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,188,212,0.12);
+    }
+
+    .about-deco-2 {
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: 2px solid rgba(0,188,212,0.08);
+    }
+
+    .about-deco-3 {
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 2px solid rgba(13,27,62,0.06);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-text { }
+
+    .about-body {
+      font-size: 1.05rem;
+      color: var(--gray-text);
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 36px;
+    }
+
+    .about-pillar {
+      background: var(--gray-light);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      border-left: 3px solid var(--teal);
+    }
+
+    .about-pillar-title {
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+
+    .about-pillar-text {
+      font-size: 0.82rem;
+      color: var(--gray-text);
+      line-height: 1.5;
+    }
+
+    .about-visual {
+      position: relative;
+    }
+
+    .about-image-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .about-image-placeholder {
+      height: 460px;
+      background: linear-gradient(135deg, var(--navy) 0%, #0d3a4a 50%, var(--teal-dark) 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(transparent, rgba(13,27,62,0.9));
+      padding: 40px 28px 28px;
+    }
+
+    .about-image-caption {
+      color: var(--white);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .about-image-caption span {
+      color: var(--teal-light);
+      font-weight: 700;
+    }
+
+    .about-accent-card {
+      position: absolute;
+      top: 28px;
+      right: -20px;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(0,188,212,0.4);
+    }
+
+    .about-accent-card .val {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+
+    .about-accent-card .lbl {
+      font-size: 0.75rem;
+      opacity: 0.9;
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       HOW IT WORKS SECTION
+    ============================================= */
+    #how-it-works {
+      padding: 100px 0;
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #how-it-works::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(0,188,212,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,188,212,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .how-header {
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-header .section-subtitle {
+      margin: 16px auto 0;
+    }
+
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .how-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 40px 32px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .how-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .how-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(0,188,212,0.25);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+
+    .how-card:hover::before {
+      opacity: 1;
+    }
+
+    .how-number {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 28px;
+      flex-shrink: 0;
+    }
+
+    .how-card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 16px;
+    }
+
+    .how-card-text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.75;
+    }
+
+    .how-connector {
+      position: absolute;
+      top: 56px;
+      right: -16px;
+      width: 32px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(0,188,212,0.4), transparent);
+      z-index: 2;
+    }
+
+    /* =============================================
+       DATA CENTERS SECTION
+    ============================================= */
+    #data-centers {
+      padding: 100px 0;
+      background: var(--gray-light);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .dc-text { }
+
+    .dc-body {
+      font-size: 1.02rem;
+      color: var(--gray-text);
+      line-height: 1.8;
+      margin-top: 24px;
+    }
+
+    .dc-body + .dc-body {
+      margin-top: 20px;
+    }
+
+    .dc-highlights {
+      display: flex;
+      gap: 16px;
+      margin-top: 36px;
+      flex-wrap: wrap;
+    }
+
+    .dc-highlight-tag {
+      background: rgba(0,188,212,0.1);
+      border: 1px solid rgba(0,188,212,0.25);
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+    }
+
+    .dc-visual {
+      position: relative;
+    }
+
+    .dc-image-frame {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .dc-image-placeholder {
+      height: 420px;
+      background: linear-gradient(135deg, #0a2535 0%, #0d3040 40%, #0a3d4e 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .dc-badge {
+      position: absolute;
+      bottom: 24px;
+      left: 24px;
+      right: 24px;
+      background: rgba(13,27,62,0.9);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(0,188,212,0.2);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .dc-badge-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--teal);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .dc-badge-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .dc-badge-sub {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+
+    /* =============================================
+       WHY ETHIOPIA SECTION
+    ============================================= */
+    #why-ethiopia {
+      padding: 100px 0;
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 50%, #0a2a3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #why-ethiopia::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 20% 50%, rgba(0,188,212,0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 50%, rgba(0,188,212,0.04) 0%, transparent 50%);
+    }
+
+    .why-header {
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .why-header .section-subtitle {
+      margin: 16px auto 0;
+      max-width: 700px;
+    }
+
+    .why-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .why-stat-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .why-stat-card:hover {
+      background: rgba(0,188,212,0.08);
+      border-color: rgba(0,188,212,0.3);
+      transform: translateY(-4px);
+    }
+
+    .why-stat-value {
+      font-family: var(--font-display);
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--teal-light);
+      line-height: 1;
+    }
+
+    .why-stat-desc {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 12px;
+      line-height: 1.4;
+    }
+
+    .why-divider {
+      width: 60px;
+      height: 3px;
+      background: var(--teal);
+      border-radius: 2px;
+      margin: 16px auto;
+    }
+
+    .why-support-text {
+      text-align: center;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.75;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* =============================================
+       TEAM SECTION
+    ============================================= */
+    #team {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .team-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .team-card {
+      background: var(--white);
+      border: 1px solid var(--gray-mid);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .team-card:hover {
+      box-shadow: var(--shadow-hover);
+      transform: translateY(-6px);
+      border-color: rgba(0,188,212,0.3);
+    }
+
+    .team-card-avatar {
+      height: 220px;
+      background: linear-gradient(135deg, var(--navy) 0%, #0d3a4a 100%);
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .avatar-initials {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      width: 80px;
+      height: 80px;
+      background: rgba(0,188,212,0.2);
+      border: 2px solid rgba(0,188,212,0.4);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--teal-light);
+    }
+
+    .team-card-avatar-accent {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    }
+
+    .team-card-body {
+      padding: 28px;
+    }
+
+    .team-card-name {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .team-card-role {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--teal-dark);
+      margin-top: 4px;
+      letter-spacing: 0.02em;
+    }
+
+    .team-card-divider {
+      width: 40px;
+      height: 2px;
+      background: var(--teal);
+      border-radius: 2px;
+      margin: 16px 0;
+    }
+
+    .team-card-bio {
+      font-size: 0.9rem;
+      color: var(--gray-text);
+      line-height: 1.65;
+    }
+
+    /* =============================================
+       CONTACT SECTION
+    ============================================= */
+    #contact {
+      padding: 100px 0;
+      background: linear-gradient(160deg, var(--navy-deep) 0%, var(--navy) 60%, #0a2a3a 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #contact::before {
+      content: '';
+      position: absolute;
+      top: -200px;
+      right: -200px;
+      width: 500px;
+      height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,188,212,0.08) 0%, transparent 70%);
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 64px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 48px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .contact-info {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+    }
+
+    .contact-info-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+
+    .contact-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      margin-bottom: 28px;
+    }
+
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(0,188,212,0.15);
+      border: 1px solid rgba(0,188,212,0.25);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-icon svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--teal-light);
+    }
+
+    .contact-item-label {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 4px;
+    }
+
+    .contact-item-value {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.85);
+      line-height: 1.5;
+    }
+
+    .contact-item-value a {
+      color: rgba(255,255,255,0.85);
+      transition: color 0.2s;
+    }
+
+    .contact-item-value a:hover {
+      color: var(--teal-light);
+    }
+
+    .contact-socials {
+      display: flex;
+      gap: 12px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .social-btn {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      color: rgba(255,255,255,0.6);
+    }
+
+    .social-btn:hover {
+      background: var(--teal);
+      border-color: var(--teal);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    .social-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .contact-form-wrap {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+    }
+
+    .contact-form-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 32px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 8px;
+      letter-spacing: 0.03em;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-sm);
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: var(--white);
+      font-family: var(--font-body);
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--teal);
+      background: rgba(0,188,212,0.06);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 16px 32px;
+      background: var(--teal);
+      color: var(--white);
+      border-radius: var(--radius-md);
+      font-size: 1rem;
+      font-weight: 600;
+      font-family: var(--font-body);
+      transition: var(--transition);
+      letter-spacing: 0.02em;
+    }
+
+    .form-submit:hover {
+      background: var(--teal-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0,188,212,0.4);
+    }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #footer {
+      background: #080f1e;
+      padding: 60px 0 32px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand { }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+
+    .footer-tagline {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-bottom: 20px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--teal-light);
+    }
+
+    .footer-contact-item {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+
+    .footer-contact-item a {
+      color: rgba(255,255,255,0.6);
+      transition: color 0.2s;
+    }
+
+    .footer-contact-item a:hover {
+      color: var(--teal-light);
+    }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-copyright {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+    }
+
+    .footer-bottom-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-bottom-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.35);
+      transition: color 0.2s;
+    }
+
+    .footer-bottom-links a:hover {
+      color: rgba(255,255,255,0.6);
+    }
+
+    /* =============================================
+       SCROLL INDICATOR
+    ============================================= */
+    .scroll-indicator {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      z-index: 2;
+    }
+
+    .scroll-mouse {
+      width: 24px;
+      height: 38px;
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      padding-top: 6px;
+    }
+
+    .scroll-wheel {
+      width: 4px;
+      height: 8px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 2px;
+      animation: scrollDown 2s infinite;
+    }
+
+    @keyframes scrollDown {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(10px); opacity: 0; }
+    }
+
+    /* =============================================
+       RESPONSIVE — TABLET
+    ============================================= */
+    @media (max-width: 1024px) {
+      .hero-content { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: none; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .how-grid { grid-template-columns: 1fr; gap: 24px; }
+      .dc-grid { grid-template-columns: 1fr; gap: 48px; }
+      .why-stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* =============================================
+       RESPONSIVE — MOBILE
+    ============================================= */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: rgba(13,27,62,0.98);
+        backdrop-filter: blur(12px);
+        padding: 24px;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .nav-links.open a {
+        font-size: 1rem;
+      }
+
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+
+      .about-pillars { grid-template-columns: 1fr; }
+
+      .why-stats-grid { grid-template-columns: repeat(2, 1fr); }
+
+      .team-grid { grid-template-columns: 1fr; }
+
+      .form-row { grid-template-columns: 1fr; }
+
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+      .floating-badge { display: none; }
+
+      .about-accent-card { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-title { font-size: 2rem; }
+      .section-title { font-size: 1.8rem; }
+      .why-stats-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* =============================================
+       UTILITY ANIMATIONS
+    ============================================= */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in-up {
+      animation: fadeInUp 0.6s ease forwards;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============================================
+       NAVIGATION
+  ============================================= -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#home" class="nav-logo">
+          <div class="logo-icon">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13 2L4 13H11L9 20L18 9H11L13 2Z" fill="#1A1A2E" stroke="#1A1A2E" stroke-width="0.5"/>
+            </svg>
+          </div>
+          <span class="logo-text">ETxO</span>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#how-it-works">How It Works</a></li>
+          <li><a href="#data-centers">Data Centers</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <a href="#contact" class="nav-cta">Contact Us</a>
+
+        <button class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================
+       HERO SECTION
+  ============================================= -->
+  <section id="home">
+    <div class="hero-bg-shapes">
+      <div class="hero-circle-1"></div>
+      <div class="hero-circle-2"></div>
+      <div class="hero-grid"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero-content">
+
+        <div class="hero-text">
+          <div class="hero-badge">
+            <div class="hero-badge-dot"></div>
+            <span>Now Operational · 10 MW Pilot Facility</span>
+          </div>
+
+          <h1 class="hero-title">
+            Powering Ethiopia's
+            <span class="accent">Digital Future</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            Converting Africa's abundant energy into globally liquid digital assets through Bitcoin mining and world-class data center infrastructure.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#about" class="btn btn-primary">
+              Learn More
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-value">10 MW</div>
+              <div class="hero-stat-label">Pilot capacity, Ethiopian ICT Park</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value">30 MW+</div>
+              <div class="hero-stat-label">Scale roadmap underway</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value">100%</div>
+              <div class="hero-stat-label">Clean hydropower energy</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value">#1</div>
+              <div class="hero-stat-label">Ethiopian-owned mining infrastructure</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-facility-card">
+            <div class="facility-illustration">
+              <!-- Mining Rigs SVG Illustration -->
+              <svg class="mining-rigs-svg" width="320" height="260" viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Server racks -->
+                <rect x="20" y="60" width="52" height="140" rx="4" fill="rgba(0,188,212,0.08)" stroke="rgba(0,188,212,0.3)" stroke-width="1"/>
+                <rect x="80" y="40" width="52" height="160" rx="4" fill="rgba(0,188,212,0.1)" stroke="rgba(0,188,212,0.35)" stroke-width="1"/>
+                <rect x="140" y="50" width="52" height="150" rx="4" fill="rgba(0,188,212,0.08)" stroke="rgba(0,188,212,0.3)" stroke-width="1"/>
+                <rect x="200" y="30" width="52" height="170" rx="4" fill="rgba(0,188,212,0.12)" stroke="rgba(0,188,212,0.4)" stroke-width="1"/>
+                <rect x="260" y="55" width="44" height="145" rx="4" fill="rgba(0,188,212,0.07)" stroke="rgba(0,188,212,0.25)" stroke-width="1"/>
+
+                <!-- Rack slots -->
+                <rect x="25" y="68" width="42" height="6" rx="2" fill="rgba(0,188,212,0.25)"/>
+                <rect x="25" y="80" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="25" y="92" width="42" height="6" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="25" y="104" width="42" height="6" rx="2" fill="rgba(0,188,212,0.15)"/>
+                <rect x="25" y="116" width="42" height="6" rx="2" fill="rgba(0,188,212,0.25)"/>
+                <rect x="25" y="128" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="25" y="140" width="42" height="6" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="25" y="152" width="42" height="6" rx="2" fill="rgba(0,188,212,0.15)"/>
+                <rect x="25" y="164" width="42" height="6" rx="2" fill="rgba(0,188,212,0.25)"/>
+                <rect x="25" y="176" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+
+                <rect x="85" y="48" width="42" height="6" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="85" y="60" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="85" y="72" width="42" height="6" rx="2" fill="rgba(0,188,212,0.35)"/>
+                <rect x="85" y="84" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="85" y="96" width="42" height="6" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="85" y="108" width="42" height="6" rx="2" fill="rgba(0,188,212,0.15)"/>
+                <rect x="85" y="120" width="42" height="6" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="85" y="132" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="85" y="144" width="42" height="6" rx="2" fill="rgba(0,188,212,0.32)"/>
+                <rect x="85" y="156" width="42" height="6" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="85" y="168" width="42" height="6" rx="2" fill="rgba(0,188,212,0.25)"/>
+
+                <rect x="145" y="58" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="145" y="70" width="42" height="6" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="145" y="82" width="42" height="6" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="145" y="94" width="42" height="6" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="145" y="106" width="42" height="6" rx="2" fill="rgba(0,188,212,0.22)"/>
+                <rect x="145" y="118" width="42" height="6" rx="2" fill="rgba(0,188,212,0.32)"/>
+                <rect x="145" y="130" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="145" y="142" width="42" height="6" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="145" y="154" width="42" height="6" rx="2" fill="rgba(0,188,212,0.15)"/>
+                <rect x="145" y="166" width="42" height="6" rx="2" fill="rgba(0,188,212,0.3)"/>
+
+                <rect x="205" y="38" width="42" height="6" rx="2" fill="rgba(0,188,212,0.35)"/>
+                <rect x="205" y="50" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="205" y="62" width="42" height="6" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="205" y="74" width="42" height="6" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="205" y="86" width="42" height="6" rx="2" fill="rgba(0,188,212,0.32)"/>
+                <rect x="205" y="98" width="42" height="6" rx="2" fill="rgba(0,188,212,0.22)"/>
+                <rect x="205" y="110" width="42" height="6" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="205" y="122" width="42" height="6" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="205" y="134" width="42" height="6" rx="2" fill="rgba(0,188,212,0.35)"/>
+                <rect x="205" y="146" width="42" height="6" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="205" y="158" width="42" height="6" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="205" y="170" width="42" height="6" rx="2" fill="rgba(0,188,212,0.18)"/>
+
+                <!-- LED indicators (glowing dots) -->
+                <circle cx="30" cy="71" r="2" fill="#4CAF50"/>
+                <circle cx="38" cy="71" r="2" fill="#4CAF50"/>
+                <circle cx="30" cy="83" r="2" fill="#F5C518"/>
+                <circle cx="38" cy="83" r="2" fill="#4CAF50"/>
+                <circle cx="90" cy="51" r="2" fill="#4CAF50"/>
+                <circle cx="98" cy="51" r="2" fill="#4CAF50"/>
+                <circle cx="90" cy="63" r="2" fill="#4CAF50"/>
+                <circle cx="98" cy="63" r="2" fill="#F5C518"/>
+                <circle cx="210" cy="41" r="2" fill="#4CAF50"/>
+                <circle cx="218" cy="41" r="2" fill="#4CAF50"/>
+                <circle cx="210" cy="53" r="2" fill="#4CAF50"/>
+                <circle cx="218" cy="53" r="2" fill="#4CAF50"/>
+
+                <!-- Floor line -->
+                <line x1="10" y1="205" x2="310" y2="205" stroke="rgba(0,188,212,0.2)" stroke-width="1"/>
+
+                <!-- Bitcoin symbol -->
+                <circle cx="160" cy="232" r="16" fill="rgba(245,197,24,0.12)" stroke="rgba(245,197,24,0.4)" stroke-width="1.5"/>
+                <text x="160" y="237" text-anchor="middle" font-size="14" font-weight="bold" fill="rgba(245,197,24,0.8)" font-family="sans-serif">₿</text>
+              </svg>
+            </div>
+            <div class="facility-card-footer">
+              <span class="facility-card-label">ETxO Mining Facility — Ethiopian ICT Park</span>
+              <div class="facility-card-status">
+                <div class="status-dot"></div>
+                Operational
+              </div>
+            </div>
+          </div>
+
+          <!-- Floating badges -->
+          <div class="floating-badge floating-badge-1">
+            <div class="badge-value">10 MW</div>
+            <div class="badge-label">Active Capacity</div>
+          </div>
+          <div class="floating-badge floating-badge-2">
+            <div class="badge-value">100%</div>
+            <div class="badge-label">Hydro Powered</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-wheel"></div>
+      </div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ============================================
+       ABOUT SECTION
+  ============================================= -->
+  <section id="about">
+    <div class="about-deco-1"></div>
+    <div class="about-deco-2"></div>
+    <div class="about-deco-3"></div>
+
+    <div class="container">
+      <div class="about-grid">
+
+        <div class="about-text">
+          <span class="section-label">About ETxO</span>
+          <h2 class="section-title">Ethiopia at the Forefront of Digital Infrastructure</h2>
+          <p class="about-body">
+            ETxO Technologies is building Ethiopia's first large-scale Bitcoin mining and digital asset infrastructure. Our mission is to convert Ethiopia's abundant, underutilized hydropower into globally liquid digital assets — creating economic value, building local technical capacity, and positioning Ethiopia as a competitive player in the global digital economy.
+          </p>
+
+          <div class="about-pillars">
+            <div class="about-pillar">
+              <div class="about-pillar-title">Clean Energy First</div>
+              <div class="about-pillar-text">100% powered by Ethiopia's abundant hydropower resources.</div>
+            </div>
+            <div class="about-pillar">
+              <div class="about-pillar-title">Ethiopian Owned</div>
+              <div class="about-pillar-text">Locally owned and operated — ensuring Ethiopian participation.</div>
+            </div>
+            <div class="about-pillar">
+              <div class="about-pillar-title">Global Reach</div>
+              <div class="about-pillar-text">Converting local energy into globally tradable digital assets.</div>
+            </div>
+            <div class="about-pillar">
+              <div class="about-pillar-title">Future-Ready</div>
+              <div class="about-pillar-text">Infrastructure designed to evolve into HPC and AI workloads.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="about-image-frame">
+            <div class="about-image-placeholder">
+              <!-- Ethiopia / infrastructure visual -->
+              <svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Background circles -->
+                <circle cx="150" cy="150" r="120" fill="rgba(0,188,212,0.05)" stroke="rgba(0,188,212,0.15)" stroke-width="1"/>
+                <circle cx="150" cy="150" r="85" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.2)" stroke-width="1"/>
+                <circle cx="150" cy="150" r="50" fill="rgba(0,188,212,0.08)" stroke="rgba(0,188,212,0.3)" stroke-width="1"/>
+
+                <!-- Map pin / location -->
+                <circle cx="150" cy="138" r="22" fill="rgba(0,188,212,0.2)" stroke="rgba(0,188,212,0.5)" stroke-width="2"/>
+                <circle cx="150" cy="138" r="10" fill="var(--teal)" />
+                <path d="M150 160L143 175L150 172L157 175Z" fill="var(--teal)"/>
+
+                <!-- Network lines -->
+                <line x1="150" y1="65" x2="150" y2="88" stroke="rgba(0,188,212,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="215" y1="150" x2="188" y2="150" stroke="rgba(0,188,212,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="85" y1="150" x2="112" y2="150" stroke="rgba(0,188,212,0.3)" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="196" y1="104" x2="178" y2="122" stroke="rgba(0,188,212,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+                <line x1="104" y1="104" x2="122" y2="122" stroke="rgba(0,188,212,0.2)" stroke-width="1" stroke-dasharray="4 4"/>
+
+                <!-- Node dots -->
+                <circle cx="150" cy="58" r="5" fill="rgba(0,188,212,0.5)"/>
+                <circle cx="222" cy="150" r="5" fill="rgba(0,188,212,0.5)"/>
+                <circle cx="78" cy="150" r="5" fill="rgba(0,188,212,0.5)"/>
+                <circle cx="202" cy="98" r="5" fill="rgba(0,188,212,0.4)"/>
+                <circle cx="98" cy="98" r="5" fill="rgba(0,188,212,0.4)"/>
+
+                <!-- Bitcoin symbol at center bottom -->
+                <text x="150" y="250" text-anchor="middle" font-size="28" font-weight="bold" fill="rgba(245,197,24,0.6)" font-family="sans-serif">₿</text>
+              </svg>
+              <div class="about-image-overlay">
+                <p class="about-image-caption">
+                  <span>Ethiopian ICT Park</span>, Addis Ababa — Operational since 2024
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accent card -->
+          <div class="about-accent-card">
+            <div class="val">10 MW</div>
+            <div class="lbl">Pilot Facility Active</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       HOW IT WORKS SECTION
+  ============================================= -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="how-header">
+        <span class="section-label">The Process</span>
+        <h2 class="section-title light">How ETxO Works</h2>
+        <p class="section-subtitle light">
+          From Ethiopia's clean hydropower to globally tradable Bitcoin — our end-to-end infrastructure model.
+        </p>
+      </div>
+
+      <div class="how-grid">
+
+        <div class="how-card">
+          <div class="how-number">01</div>
+          <h3 class="how-card-title">Stranded Energy Capture</h3>
+          <p class="how-card-text">
+            Ethiopia's excess hydropower is converted into a globally liquid asset. We connect directly to energy infrastructure to source clean, low-cost power at scale.
+          </p>
+        </div>
+
+        <div class="how-card">
+          <div class="how-number">02</div>
+          <h3 class="how-card-title">Bitcoin Mining Operations</h3>
+          <p class="how-card-text">
+            Our purpose-built data centers house industrial-grade mining equipment, operating 24/7 to generate Bitcoin with maximum efficiency and minimal environmental impact.
+          </p>
+        </div>
+
+        <div class="how-card">
+          <div class="how-number">03</div>
+          <h3 class="how-card-title">Value Creation &amp; Reinvestment</h3>
+          <p class="how-card-text">
+            Mining revenue is reinvested into expanding infrastructure, building local technical expertise, and strengthening Ethiopia's position in the global digital economy.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       DATA CENTERS SECTION
+  ============================================= -->
+  <section id="data-centers">
+    <div class="container">
+      <div class="dc-grid">
+
+        <div class="dc-text">
+          <span class="section-label">Infrastructure</span>
+          <h2 class="section-title">Data Centers</h2>
+
+          <p class="dc-body">
+            ETxO's Digital Asset Mining initiative establishes state-of-the-art data centers in Ethiopia, designed for the mining of Bitcoin and digital assets. Our 10 MW pilot facility at the Ethiopian ICT Park is the foundation of a roadmap to 30 MW and beyond. These centers are not just hubs of digital innovation — they are powerful engines of economic development, driving revenue streams that support communities, build skills, and fund the next generation of digital infrastructure.
+          </p>
+
+          <p class="dc-body">
+            Looking ahead, ETxO's infrastructure is designed to evolve into next-generation data centers supporting high-performance computing and AI workloads — positioning Ethiopia as a global hub for advanced computing.
+          </p>
+
+          <div class="dc-highlights">
+            <span class="dc-highlight-tag">10 MW Operational</span>
+            <span class="dc-highlight-tag">30 MW+ Roadmap</span>
+            <span class="dc-highlight-tag">HPC Ready</span>
+            <span class="dc-highlight-tag">AI-Compatible</span>
+            <span class="dc-highlight-tag">24/7 Operations</span>
+          </div>
+        </div>
+
+        <div class="dc-visual">
+          <div class="dc-image-frame">
+            <div class="dc-image-placeholder">
+              <!-- Data center SVG illustration -->
+              <svg width="340" height="280" viewBox="0 0 340 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- Floor / base -->
+                <rect x="20" y="230" width="300" height="8" rx="4" fill="rgba(0,188,212,0.1)"/>
+
+                <!-- Server racks - row 1 -->
+                <rect x="30" y="80" width="60" height="150" rx="6" fill="rgba(0,188,212,0.06)" stroke="rgba(0,188,212,0.2)" stroke-width="1.5"/>
+                <rect x="100" y="60" width="60" height="170" rx="6" fill="rgba(0,188,212,0.09)" stroke="rgba(0,188,212,0.25)" stroke-width="1.5"/>
+                <rect x="170" y="70" width="60" height="160" rx="6" fill="rgba(0,188,212,0.07)" stroke="rgba(0,188,212,0.22)" stroke-width="1.5"/>
+                <rect x="240" y="50" width="60" height="180" rx="6" fill="rgba(0,188,212,0.1)" stroke="rgba(0,188,212,0.28)" stroke-width="1.5"/>
+
+                <!-- Rack panels / blades -->
+                <rect x="36" y="90" width="48" height="8" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="36" y="104" width="48" height="8" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="36" y="118" width="48" height="8" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="36" y="132" width="48" height="8" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="36" y="146" width="48" height="8" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="36" y="160" width="48" height="8" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="36" y="174" width="48" height="8" rx="2" fill="rgba(0,188,212,0.25)"/>
+                <rect x="36" y="188" width="48" height="8" rx="2" fill="rgba(0,188,212,0.15)"/>
+                <rect x="36" y="202" width="48" height="8" rx="2" fill="rgba(0,188,212,0.28)"/>
+
+                <rect x="106" y="70" width="48" height="8" rx="2" fill="rgba(0,188,212,0.32)"/>
+                <rect x="106" y="84" width="48" height="8" rx="2" fill="rgba(0,188,212,0.22)"/>
+                <rect x="106" y="98" width="48" height="8" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="106" y="112" width="48" height="8" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="106" y="126" width="48" height="8" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="106" y="140" width="48" height="8" rx="2" fill="rgba(0,188,212,0.22)"/>
+                <rect x="106" y="154" width="48" height="8" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="106" y="168" width="48" height="8" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="106" y="182" width="48" height="8" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="106" y="196" width="48" height="8" rx="2" fill="rgba(0,188,212,0.22)"/>
+                <rect x="106" y="210" width="48" height="8" rx="2" fill="rgba(0,188,212,0.16)"/>
+
+                <rect x="176" y="80" width="48" height="8" rx="2" fill="rgba(0,188,212,0.25)"/>
+                <rect x="176" y="94" width="48" height="8" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="176" y="108" width="48" height="8" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="176" y="122" width="48" height="8" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="176" y="136" width="48" height="8" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="176" y="150" width="48" height="8" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="176" y="164" width="48" height="8" rx="2" fill="rgba(0,188,212,0.32)"/>
+                <rect x="176" y="178" width="48" height="8" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="176" y="192" width="48" height="8" rx="2" fill="rgba(0,188,212,0.25)"/>
+                <rect x="176" y="206" width="48" height="8" rx="2" fill="rgba(0,188,212,0.15)"/>
+
+                <rect x="246" y="60" width="48" height="8" rx="2" fill="rgba(0,188,212,0.35)"/>
+                <rect x="246" y="74" width="48" height="8" rx="2" fill="rgba(0,188,212,0.22)"/>
+                <rect x="246" y="88" width="48" height="8" rx="2" fill="rgba(0,188,212,0.3)"/>
+                <rect x="246" y="102" width="48" height="8" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="246" y="116" width="48" height="8" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="246" y="130" width="48" height="8" rx="2" fill="rgba(0,188,212,0.22)"/>
+                <rect x="246" y="144" width="48" height="8" rx="2" fill="rgba(0,188,212,0.32)"/>
+                <rect x="246" y="158" width="48" height="8" rx="2" fill="rgba(0,188,212,0.18)"/>
+                <rect x="246" y="172" width="48" height="8" rx="2" fill="rgba(0,188,212,0.28)"/>
+                <rect x="246" y="186" width="48" height="8" rx="2" fill="rgba(0,188,212,0.2)"/>
+                <rect x="246" y="200" width="48" height="8" rx="2" fill="rgba(0,188,212,0.35)"/>
+                <rect x="246" y="214" width="48" height="8" rx="2" fill="rgba(0,188,212,0.18)"/>
+
+                <!-- LED clusters -->
+                <circle cx="40" cy="94" r="2.5" fill="#4CAF50"/>
+                <circle cx="48" cy="94" r="2.5" fill="#4CAF50"/>
+                <circle cx="56" cy="94" r="2.5" fill="#F5C518"/>
+                <circle cx="110" cy="74" r="2.5" fill="#4CAF50"/>
+                <circle cx="118" cy="74" r="2.5" fill="#4CAF50"/>
+                <circle cx="126" cy="74" r="2.5" fill="#4CAF50"/>
+                <circle cx="250" cy="64" r="2.5" fill="#4CAF50"/>
+                <circle cx="258" cy="64" r="2.5" fill="#4CAF50"/>
+                <circle cx="266" cy="64" r="2.5" fill="#F5C518"/>
+              </svg>
+
+              <div class="dc-badge">
+                <div class="dc-badge-icon">
+                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 2L3 7V13L10 18L17 13V7L10 2Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+                    <circle cx="10" cy="10" r="2.5" fill="white"/>
+                  </svg>
+                </div>
+                <div>
+                  <div class="dc-badge-title">ETxO Data Center — Phase 1</div>
+                  <div class="dc-badge-sub">10 MW operational · Ethiopian ICT Park, Addis Ababa</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       WHY ETHIOPIA SECTION
+  ============================================= -->
+  <section id="why-ethiopia">
+    <div class="container">
+      <div class="why-header">
+        <span class="section-label">Why Ethiopia</span>
+        <h2 class="section-title light">A Nation Built for Digital Infrastructure</h2>
+        <p class="section-subtitle light">
+          Ethiopia's abundant hydropower resources, strategic location, and favorable energy costs make it one of the world's most promising locations for large-scale digital infrastructure development.
+        </p>
+      </div>
+
+      <div class="why-stats-grid">
+        <div class="why-stat-card">
+          <div class="why-stat-value">10 MW</div>
+          <div class="why-divider"></div>
+          <div class="why-stat-desc">Current pilot facility capacity at Ethiopian ICT Park, Addis Ababa</div>
+        </div>
+        <div class="why-stat-card">
+          <div class="why-stat-value">30 MW+</div>
+          <div class="why-divider"></div>
+          <div class="why-stat-desc">Scale roadmap in active development — expanding capacity across Ethiopia</div>
+        </div>
+        <div class="why-stat-card">
+          <div class="why-stat-value">100%</div>
+          <div class="why-divider"></div>
+          <div class="why-stat-desc">Clean energy — powered entirely by Ethiopia's hydropower resources</div>
+        </div>
+        <div class="why-stat-card">
+          <div class="why-stat-value">#1</div>
+          <div class="why-divider"></div>
+          <div class="why-stat-desc">Ethiopian-owned large-scale Bitcoin mining infrastructure</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       TEAM SECTION
+  ============================================= -->
+  <section id="team">
+    <div class="container">
+      <div class="team-header">
+        <span class="section-label">Our People</span>
+        <h2 class="section-title">Leadership</h2>
+        <p class="section-subtitle" style="margin: 16px auto 0; text-align: center;">
+          The team building Ethiopia's digital infrastructure future.
+        </p>
+      </div>
+
+      <div class="team-grid">
+
+        <div class="team-card">
+          <div class="team-card-avatar">
+            <div class="avatar-initials">MD</div>
+            <div class="team-card-avatar-accent"></div>
+          </div>
+          <div class="team-card-body">
+            <div class="team-card-name">Mikael Deribe</div>
+            <div class="team-card-role">Founder &amp; Blockchain Specialist</div>
+            <div class="team-card-divider"></div>
+            <p class="team-card-bio">
+              Blockchain infrastructure strategist focused on positioning Ethiopia as a key player in the global digital asset economy.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-avatar" style="background: linear-gradient(135deg, #0a2535 0%, #0a3d4e 100%);">
+            <div class="avatar-initials">EY</div>
+            <div class="team-card-avatar-accent"></div>
+          </div>
+          <div class="team-card-body">
+            <div class="team-card-name">Eyoel</div>
+            <div class="team-card-role">Full-stack Developer</div>
+            <div class="team-card-divider"></div>
+            <p class="team-card-bio">
+              Building the technology layer that powers ETxO's operations and digital presence.
+            </p>
+          </div>
+        </div>
+
+        <div class="team-card">
+          <div class="team-card-avatar" style="background: linear-gradient(135deg, #0d2040 0%, #102a50 100%);">
+            <div class="avatar-initials">TL</div>
+            <div class="team-card-avatar-accent"></div>
+          </div>
+          <div class="team-card-body">
+            <div class="team-card-name">Tilahun</div>
+            <div class="team-card-role">Co-founder &amp; FinTech Expert</div>
+            <div class="team-card-divider"></div>
+            <p class="team-card-bio">
+              Decades of financial technology experience driving ETxO's strategic and operational excellence.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       CONTACT SECTION
+  ============================================= -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-header">
+        <span class="section-label">Get In Touch</span>
+        <h2 class="section-title light">Ready to Build Ethiopia's Future?</h2>
+        <p class="section-subtitle light" style="margin: 16px auto 0; text-align: center;">
+          Reach out to learn more about ETxO Technologies and our growing digital infrastructure ecosystem.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-info">
+          <div class="contact-info-title">Contact Information</div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Phone</div>
+              <div class="contact-item-value">
+                <a href="tel:+251950340080">+251 95 034 0080</a><br/>
+                <a href="tel:+16172308368">+1 617-230-8368</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Email</div>
+              <div class="contact-item-value">
+                <a href="mailto:info@etxo.ai">info@etxo.ai</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Location</div>
+              <div class="contact-item-value">
+                Ethiopian IT Park<br/>Addis Ababa, Ethiopia
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-socials">
+            <!-- LinkedIn -->
+            <a href="#" class="social-btn" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <!-- Twitter/X -->
+            <a href="#" class="social-btn" aria-label="Twitter / X">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- Facebook -->
+            <a href="#" class="social-btn" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-wrap">
+          <div class="contact-form-title">Send a Message</div>
+          <form action="#" method="POST" onsubmit="return false;">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" placeholder="Mikael" autocomplete="given-name" />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" placeholder="Deribe" autocomplete="family-name" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Partnership inquiry" />
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us about your interest in ETxO Technologies..."></textarea>
+            </div>
+            <button type="submit" class="form-submit">
+              Send Message →
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       FOOTER
+  ============================================= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div class="logo-icon">
+              <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13 2L4 13H11L9 20L18 9H11L13 2Z" fill="#1A1A2E" stroke="#1A1A2E" stroke-width="0.5"/>
+              </svg>
+            </div>
+            <span class="logo-text">ETxO</span>
+          </div>
+          <p class="footer-tagline">
+            Powering Ethiopia's Digital Future — converting clean hydropower into globally liquid digital assets through Bitcoin mining and world-class data center infrastructure.
+          </p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Navigation</div>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#data-centers">Data Centers</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <div class="footer-contact-item">
+            <a href="tel:+251950340080">+251 95 034 0080</a>
+          </div>
+          <div class="footer-contact-item">
+            <a href="tel:+16172308368">+1 617-230-8368</a>
+          </div>
+          <div class="footer-contact-item">
+            <a href="mailto:info@etxo.ai">info@etxo.ai</a>
+          </div>
+          <div class="footer-contact-item">
+            Ethiopian IT Park<br/>Addis Ababa, Ethiopia
+          </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-copyright">
+          © 2026 ETxO Technologies PLC &nbsp;|&nbsp; Ethiopian IT Park, Addis Ababa, Ethiopia
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       MINIMAL JAVASCRIPT (no frameworks)
+  ============================================= -->
+  <script>
+    // Navbar scroll behavior
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Mobile hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // Smooth scroll polyfill for older Safari
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
