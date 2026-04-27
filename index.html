@@ -1574,8 +1574,13 @@
        HERO OPS PANEL (glassmorphism foreground)
     ============================================= */
     .ops-panel {
-      background: transparent;
+      background: rgba(10, 22, 40, 0.25);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
       padding: 28px 26px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
 
     .ops-panel-header {
