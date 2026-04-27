@@ -10,10 +10,15 @@
   <meta property="og:type" content="website" />
   <title>ETxO Technologies — Powering Ethiopia's Digital Future</title>
 
+  <link rel="icon" type="image/png" href="etxo-logo.png" />
+  <meta property="og:image" content="https://etxo.io/etxo-facility.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://etxo.io/etxo-facility.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
 
   <style>
     /* =============================================
@@ -255,6 +260,18 @@
       background: var(--white);
       border-radius: 2px;
       transition: var(--transition);
+      transform-origin: center;
+    }
+
+    .nav-hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .nav-hamburger.open span:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+    .nav-hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
     }
 
     /* =============================================
@@ -1488,12 +1505,89 @@
        UTILITY ANIMATIONS
     ============================================= */
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(24px); }
+      from { opacity: 0; transform: translateY(28px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .fade-in-up {
-      animation: fadeInUp 0.6s ease forwards;
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* Why Ethiopia comparison table */
+    .why-compare {
+      margin-top: 48px;
+      position: relative;
+      z-index: 1;
+      overflow-x: auto;
+    }
+
+    .why-compare table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    .why-compare th {
+      text-align: left;
+      padding: 12px 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .why-compare td {
+      padding: 14px 20px;
+      color: rgba(255,255,255,0.75);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .why-compare tr.highlight td {
+      background: rgba(0,188,212,0.07);
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    .why-compare tr.highlight td:first-child {
+      border-left: 3px solid var(--teal);
+      color: var(--teal-light);
+    }
+
+    .why-compare td.good { color: #4ade80; }
+    .why-compare td.mid  { color: rgba(255,255,255,0.55); }
+
+    /* Contact form feedback */
+    .form-feedback {
+      display: none;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 16px;
+    }
+    .form-feedback.success {
+      background: rgba(74,222,128,0.12);
+      border: 1px solid rgba(74,222,128,0.3);
+      color: #4ade80;
+    }
+    .form-feedback.error {
+      background: rgba(248,113,113,0.12);
+      border: 1px solid rgba(248,113,113,0.3);
+      color: #f87171;
     }
   </style>
 </head>
@@ -1618,7 +1712,7 @@
     <div class="container">
       <div class="about-grid">
 
-        <div class="about-text">
+        <div class="about-text reveal">
           <span class="section-label">About ETxO</span>
           <h2 class="section-title">Ethiopia at the Forefront of Digital Infrastructure</h2>
           <p class="about-body">
@@ -1645,13 +1739,13 @@
           </div>
         </div>
 
-        <div class="about-visual">
+        <div class="about-visual reveal">
           <div class="about-image-frame">
             <div class="about-image-placeholder" style="padding:0;overflow:hidden;">
-              <img src="etxo-facility.png" alt="ETxO Technologies — Ethiopian ICT Park" style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;">
+              <img src="mining-rigs.png" alt="ETxO Technologies — Bitcoin Mining Rigs" style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;">
               <div class="about-image-overlay">
                 <p class="about-image-caption">
-                  <span>Ethiopian ICT Park</span>, Addis Ababa
+                  Industrial-grade mining hardware, <span>operating 24/7</span>
                 </p>
               </div>
             </div>
@@ -1673,7 +1767,7 @@
   ============================================= -->
   <section id="how-it-works">
     <div class="container">
-      <div class="how-header">
+      <div class="how-header reveal">
         <span class="section-label">The Process</span>
         <h2 class="section-title light">How ETxO Works</h2>
         <p class="section-subtitle light">
@@ -1683,7 +1777,7 @@
 
       <div class="how-grid">
 
-        <div class="how-card">
+        <div class="how-card reveal reveal-delay-1">
           <div class="how-number">01</div>
           <h3 class="how-card-title">Stranded Energy Capture</h3>
           <p class="how-card-text">
@@ -1691,7 +1785,7 @@
           </p>
         </div>
 
-        <div class="how-card">
+        <div class="how-card reveal reveal-delay-2">
           <div class="how-number">02</div>
           <h3 class="how-card-title">Bitcoin Mining Operations</h3>
           <p class="how-card-text">
@@ -1699,7 +1793,7 @@
           </p>
         </div>
 
-        <div class="how-card">
+        <div class="how-card reveal reveal-delay-3">
           <div class="how-number">03</div>
           <h3 class="how-card-title">Value Creation &amp; Reinvestment</h3>
           <p class="how-card-text">
@@ -1718,7 +1812,7 @@
     <div class="container">
       <div class="dc-grid">
 
-        <div class="dc-text">
+        <div class="dc-text reveal">
           <span class="section-label">Infrastructure</span>
           <h2 class="section-title">Data Centers</h2>
 
@@ -1739,7 +1833,7 @@
           </div>
         </div>
 
-        <div class="dc-visual">
+        <div class="dc-visual reveal reveal-delay-1">
           <div class="dc-image-frame">
             <div class="dc-image-placeholder" style="padding:0;overflow:hidden;">
               <img src="mining-rigs.png" alt="ETxO Data Center — Bitcoin Mining Rigs" style="width:100%;height:100%;object-fit:cover;border-radius:16px;display:block;">
@@ -1758,36 +1852,79 @@
   ============================================= -->
   <section id="why-ethiopia">
     <div class="container">
-      <div class="why-header">
+      <div class="why-header reveal">
         <span class="section-label">Why Ethiopia</span>
         <h2 class="section-title light">A Nation Built for Digital Infrastructure</h2>
         <p class="section-subtitle light">
-          Ethiopia's abundant hydropower resources, strategic location, and favorable energy costs make it one of the world's most promising locations for large-scale digital infrastructure development.
+          Ethiopia sits on one of the world's largest untapped hydropower reserves, with some of the cheapest, cleanest electricity on the planet — making it uniquely positioned as a global hub for Bitcoin mining and digital infrastructure.
         </p>
       </div>
 
       <div class="why-stats-grid">
-        <div class="why-stat-card">
-          <div class="why-stat-value">10 MW</div>
+        <div class="why-stat-card reveal reveal-delay-1">
+          <div class="why-stat-value">45,000 MW</div>
           <div class="why-divider"></div>
-          <div class="why-stat-desc">Pilot capacity, Ethiopian ICT Park</div>
+          <div class="why-stat-desc">Estimated hydropower potential — Africa's largest reserve, less than 10% developed</div>
         </div>
-        <div class="why-stat-card">
-          <div class="why-stat-value">30 MW+</div>
+        <div class="why-stat-card reveal reveal-delay-2">
+          <div class="why-stat-value">~$0.03</div>
           <div class="why-divider"></div>
-          <div class="why-stat-desc">Scale roadmap underway</div>
+          <div class="why-stat-desc">Per kWh — among the world's lowest industrial electricity tariffs</div>
         </div>
-        <div class="why-stat-card">
-          <div class="why-stat-value">100%</div>
+        <div class="why-stat-card reveal reveal-delay-3">
+          <div class="why-stat-value">Near Zero</div>
           <div class="why-divider"></div>
-          <div class="why-stat-desc">Clean hydropower energy</div>
+          <div class="why-stat-desc">Carbon intensity — 100% renewable hydropower, no fossil fuel dependency</div>
         </div>
-        <div class="why-stat-card">
-          <div class="why-stat-value">24/7</div>
+        <div class="why-stat-card reveal reveal-delay-4">
+          <div class="why-stat-value">UTC+3</div>
           <div class="why-divider"></div>
-          <div class="why-stat-desc">Round-the-clock operations</div>
+          <div class="why-stat-desc">Strategically bridging Asian and European market hours — ideal for 24/7 operations</div>
         </div>
       </div>
+
+      <div class="why-compare reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Location</th>
+              <th>Electricity Cost ($/kWh)</th>
+              <th>Energy Source</th>
+              <th>Carbon Intensity</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="highlight">
+              <td>Ethiopia (ETxO)</td>
+              <td class="good">~$0.03</td>
+              <td class="good">100% Hydro</td>
+              <td class="good">Near Zero</td>
+            </tr>
+            <tr>
+              <td>United States</td>
+              <td class="mid">$0.07 – $0.12</td>
+              <td class="mid">Mixed grid</td>
+              <td class="mid">Moderate–High</td>
+            </tr>
+            <tr>
+              <td>Kazakhstan</td>
+              <td class="mid">$0.04 – $0.06</td>
+              <td class="mid">Coal-heavy</td>
+              <td class="mid">Very High</td>
+            </tr>
+            <tr>
+              <td>Iceland</td>
+              <td class="mid">$0.05 – $0.07</td>
+              <td class="mid">Hydro/Geo</td>
+              <td class="good">Very Low</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="why-support-text reveal" style="margin-top:40px;">
+        Ethiopia's GERD (Grand Ethiopian Renaissance Dam) — Africa's largest hydroelectric dam at 5,150 MW — is already online and expanding. Combined with the EASSy and TEAMS submarine cable systems providing direct fibre links to Europe and Asia, Ethiopia offers a rare combination of cheap clean power, reliable connectivity, and government-backed ICT infrastructure investment.
+      </p>
     </div>
   </section>
 
@@ -1909,22 +2046,19 @@
           </div>
 
           <div class="contact-socials">
-            <!-- LinkedIn -->
-            <a href="#" class="social-btn" aria-label="LinkedIn">
+            <a href="mailto:info@etxo.io" class="social-btn" aria-label="Email ETxO">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
               </svg>
             </a>
-            <!-- Twitter/X -->
-            <a href="#" class="social-btn" aria-label="Twitter / X">
+            <a href="tel:+251947060080" class="social-btn" aria-label="Call Ethiopia">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
               </svg>
             </a>
-            <!-- Facebook -->
-            <a href="#" class="social-btn" aria-label="Facebook">
+            <a href="tel:+16172308368" class="social-btn" aria-label="Call US">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
               </svg>
             </a>
           </div>
@@ -1932,11 +2066,11 @@
 
         <div class="contact-form-wrap">
           <div class="contact-form-title">Send a Message</div>
-          <form action="#" method="POST" onsubmit="return false;">
+          <form id="contactForm" action="https://formspree.io/f/info@etxo.io" method="POST">
             <div class="form-row">
               <div class="form-group">
                 <label for="fname">First Name</label>
-                <input type="text" id="fname" name="fname" placeholder="John" autocomplete="given-name" />
+                <input type="text" id="fname" name="fname" placeholder="John" autocomplete="given-name" required />
               </div>
               <div class="form-group">
                 <label for="lname">Last Name</label>
@@ -1945,7 +2079,7 @@
             </div>
             <div class="form-group">
               <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" />
+              <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required />
             </div>
             <div class="form-group">
               <label for="subject">Subject</label>
@@ -1953,11 +2087,12 @@
             </div>
             <div class="form-group">
               <label for="message">Message</label>
-              <textarea id="message" name="message" placeholder="Tell us about your interest in ETxO Technologies..."></textarea>
+              <textarea id="message" name="message" placeholder="Tell us about your interest in ETxO Technologies..." required></textarea>
             </div>
             <button type="submit" class="form-submit">
               Send Message →
             </button>
+            <div class="form-feedback" id="formFeedback"></div>
           </form>
         </div>
 
@@ -2041,12 +2176,14 @@
     const navLinks = document.getElementById('navLinks');
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('open');
+      hamburger.classList.toggle('open');
     });
 
     // Close mobile menu on link click
     navLinks.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         navLinks.classList.remove('open');
+        hamburger.classList.remove('open');
       });
     });
 
@@ -2060,6 +2197,53 @@
         }
       });
     });
+
+    // Scroll-reveal via IntersectionObserver
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Contact form — Formspree AJAX submission
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+      contactForm.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const btn = this.querySelector('.form-submit');
+        const feedback = document.getElementById('formFeedback');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        feedback.style.display = 'none';
+        feedback.className = 'form-feedback';
+        try {
+          const res = await fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+          });
+          if (res.ok) {
+            feedback.textContent = 'Message sent! We\'ll be in touch within 24 hours.';
+            feedback.classList.add('success');
+            this.reset();
+          } else {
+            throw new Error('Server error');
+          }
+        } catch (_) {
+          feedback.textContent = 'Something went wrong. Please email us directly at info@etxo.io';
+          feedback.classList.add('error');
+        } finally {
+          feedback.style.display = 'block';
+          btn.disabled = false;
+          btn.textContent = 'Send Message →';
+        }
+      });
+    }
   </script>
 
 </body>
