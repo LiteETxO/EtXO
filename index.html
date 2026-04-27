@@ -1570,6 +1570,150 @@
     .why-compare td.good { color: #4ade80; }
     .why-compare td.mid  { color: rgba(255,255,255,0.55); }
 
+    /* =============================================
+       HERO OPS PANEL (glassmorphism foreground)
+    ============================================= */
+    .ops-panel {
+      background: rgba(10, 22, 40, 0.55);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(0,188,212,0.25);
+      border-radius: var(--radius-lg);
+      padding: 32px 28px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.07);
+    }
+
+    .ops-panel-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 28px;
+    }
+
+    .ops-live-dot {
+      width: 9px;
+      height: 9px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px rgba(34,197,94,0.7);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    .ops-live-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #22c55e;
+    }
+
+    .ops-location {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
+      margin-left: auto;
+    }
+
+    .ops-metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .ops-metric {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-md);
+      padding: 16px 10px;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .ops-metric:hover {
+      background: rgba(0,188,212,0.1);
+      border-color: rgba(0,188,212,0.25);
+    }
+
+    .ops-metric-icon {
+      font-size: 1.1rem;
+      margin-bottom: 6px;
+    }
+
+    .ops-metric-val {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--teal-light);
+      line-height: 1.1;
+    }
+
+    .ops-metric-lbl {
+      font-size: 0.68rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 4px;
+      line-height: 1.3;
+    }
+
+    .ops-divider {
+      height: 1px;
+      background: rgba(255,255,255,0.07);
+      margin-bottom: 20px;
+    }
+
+    .ops-advantages {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .ops-adv-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.75);
+    }
+
+    .ops-adv-item svg {
+      flex-shrink: 0;
+    }
+
+    .ops-scale-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 8px;
+    }
+
+    .ops-scale-track {
+      height: 6px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .ops-scale-fill {
+      height: 100%;
+      width: 33%;
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+      border-radius: 3px;
+      position: relative;
+    }
+
+    .ops-scale-fill::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: rgba(255,255,255,0.6);
+      border-radius: 2px;
+    }
+
     /* Contact form feedback */
     .form-feedback {
       display: none;
@@ -1684,12 +1828,66 @@
         </div>
 
         <div class="hero-visual">
-          <div style="border-radius:20px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.5);position:relative;">
-            <img src="etxo-facility.png" alt="ETxO Technologies — Ethiopian ICT Park" style="width:100%;height:420px;object-fit:cover;display:block;">
-            <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top, rgba(10,26,42,0.95) 0%, transparent 100%);">
-              <div style="display:flex;align-items:center;gap:8px;">
-                <div style="width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.6);"></div>
-                <span style="font-size:13px;color:rgba(255,255,255,0.85);font-weight:500;">Ethiopian ICT Park, Addis Ababa</span>
+          <div class="ops-panel">
+            <div class="ops-panel-header">
+              <div class="ops-live-dot"></div>
+              <span class="ops-live-label">Live Operations</span>
+              <span class="ops-location">Ethiopian ICT Park · Addis Ababa</span>
+            </div>
+
+            <div class="ops-metrics-grid">
+              <div class="ops-metric">
+                <div class="ops-metric-icon">⚡</div>
+                <div class="ops-metric-val">10 MW</div>
+                <div class="ops-metric-lbl">Active Capacity</div>
+              </div>
+              <div class="ops-metric">
+                <div class="ops-metric-icon">₿</div>
+                <div class="ops-metric-val">24/7</div>
+                <div class="ops-metric-lbl">Mining Uptime</div>
+              </div>
+              <div class="ops-metric">
+                <div class="ops-metric-icon">🌿</div>
+                <div class="ops-metric-val">100%</div>
+                <div class="ops-metric-lbl">Clean Hydro</div>
+              </div>
+              <div class="ops-metric">
+                <div class="ops-metric-icon">💰</div>
+                <div class="ops-metric-val">~$0.03</div>
+                <div class="ops-metric-lbl">Per kWh</div>
+              </div>
+            </div>
+
+            <div class="ops-divider"></div>
+
+            <div class="ops-advantages">
+              <div class="ops-adv-item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#00BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>45,000 MW untapped hydro reserve</span>
+              </div>
+              <div class="ops-adv-item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#00BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>30 MW+ expansion roadmap underway</span>
+              </div>
+              <div class="ops-adv-item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#00BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>HPC &amp; AI infrastructure ready</span>
+              </div>
+              <div class="ops-adv-item">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#00BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Government-backed ICT Park facility</span>
+              </div>
+            </div>
+
+            <div class="ops-footer">
+              <div class="ops-scale-bar">
+                <div class="ops-scale-label">
+                  <span>Current: 10 MW</span>
+                  <span>Target: 30 MW+</span>
+                </div>
+                <div class="ops-scale-track">
+                  <div class="ops-scale-fill"></div>
+                </div>
               </div>
             </div>
           </div>
