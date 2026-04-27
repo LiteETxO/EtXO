@@ -1579,7 +1579,7 @@
       -webkit-backdrop-filter: blur(18px);
       border: 1px solid rgba(0,188,212,0.25);
       border-radius: var(--radius-lg);
-      padding: 32px 28px;
+      padding: 28px 26px;
       box-shadow: 0 24px 80px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.07);
     }
 
@@ -1587,131 +1587,202 @@
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-bottom: 28px;
+      margin-bottom: 20px;
     }
 
     .ops-live-dot {
-      width: 9px;
-      height: 9px;
-      background: #22c55e;
+      width: 8px;
+      height: 8px;
+      background: var(--teal-light);
       border-radius: 50%;
-      box-shadow: 0 0 10px rgba(34,197,94,0.7);
+      box-shadow: 0 0 8px rgba(0,188,212,0.8);
       animation: pulse 2s infinite;
       flex-shrink: 0;
     }
 
     .ops-live-label {
-      font-size: 0.78rem;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #22c55e;
+      color: var(--teal-light);
     }
 
     .ops-location {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.45);
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
       margin-left: auto;
     }
 
-    .ops-metrics-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-bottom: 24px;
-    }
-
-    .ops-metric {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-md);
-      padding: 16px 10px;
-      text-align: center;
-      transition: var(--transition);
-    }
-
-    .ops-metric:hover {
-      background: rgba(0,188,212,0.1);
-      border-color: rgba(0,188,212,0.25);
-    }
-
-    .ops-metric-icon {
-      font-size: 1.1rem;
-      margin-bottom: 6px;
-    }
-
-    .ops-metric-val {
-      font-family: var(--font-display);
-      font-size: 1.05rem;
+    .ops-section-title {
+      font-size: 0.7rem;
       font-weight: 700;
-      color: var(--teal-light);
-      line-height: 1.1;
-    }
-
-    .ops-metric-lbl {
-      font-size: 0.68rem;
-      color: rgba(255,255,255,0.5);
-      margin-top: 4px;
-      line-height: 1.3;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.35);
+      margin-bottom: 12px;
     }
 
     .ops-divider {
       height: 1px;
       background: rgba(255,255,255,0.07);
-      margin-bottom: 20px;
+      margin: 18px 0;
     }
 
-    .ops-advantages {
+    /* Cost comparison bars */
+    .ops-bars {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 24px;
+      gap: 9px;
+      margin-bottom: 4px;
     }
 
-    .ops-adv-item {
-      display: flex;
+    .ops-bar-row {
+      display: grid;
+      grid-template-columns: 110px 1fr 44px;
       align-items: center;
       gap: 10px;
-      font-size: 0.85rem;
-      color: rgba(255,255,255,0.75);
     }
 
-    .ops-adv-item svg {
-      flex-shrink: 0;
+    .ops-bar-name {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.55);
+      white-space: nowrap;
     }
 
-    .ops-scale-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.72rem;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 8px;
+    .ops-bar-name--highlight {
+      color: var(--teal-light);
+      font-weight: 700;
     }
 
-    .ops-scale-track {
-      height: 6px;
-      background: rgba(255,255,255,0.08);
-      border-radius: 3px;
+    .ops-bar-track {
+      height: 7px;
+      background: rgba(255,255,255,0.07);
+      border-radius: 4px;
       overflow: hidden;
     }
 
-    .ops-scale-fill {
+    .ops-bar-fill {
       height: 100%;
-      width: 33%;
-      background: linear-gradient(90deg, var(--teal), var(--teal-light));
-      border-radius: 3px;
-      position: relative;
+      background: rgba(255,255,255,0.18);
+      border-radius: 4px;
     }
 
-    .ops-scale-fill::after {
+    .ops-bar-fill--highlight {
+      background: linear-gradient(90deg, var(--teal), var(--teal-light));
+    }
+
+    .ops-bar-val {
+      font-size: 0.75rem;
+      font-family: var(--font-display);
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-align: right;
+    }
+
+    .ops-bar-val--highlight {
+      color: var(--teal-light);
+    }
+
+    /* Context pills */
+    .ops-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .ops-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px 11px;
+      border-radius: 50px;
+      font-size: 0.73rem;
+      font-weight: 600;
+    }
+
+    .ops-pill--green {
+      background: rgba(34,197,94,0.12);
+      border: 1px solid rgba(34,197,94,0.25);
+      color: #4ade80;
+    }
+
+    .ops-pill--teal {
+      background: rgba(0,188,212,0.12);
+      border: 1px solid rgba(0,188,212,0.25);
+      color: var(--teal-light);
+    }
+
+    .ops-pill--gold {
+      background: rgba(245,197,24,0.1);
+      border: 1px solid rgba(245,197,24,0.2);
+      color: var(--gold-light);
+    }
+
+    /* Expansion timeline */
+    .ops-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .ops-tl-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .ops-tl-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .ops-tl-item:not(:last-child)::before {
       content: '';
       position: absolute;
-      right: 0;
-      top: 0;
+      left: 6px;
+      top: 14px;
       bottom: 0;
-      width: 4px;
-      background: rgba(255,255,255,0.6);
-      border-radius: 2px;
+      width: 1px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .ops-tl-dot {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.2);
+      background: transparent;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ops-tl-dot--done {
+      background: var(--teal);
+      border-color: var(--teal);
+      box-shadow: 0 0 8px rgba(0,188,212,0.5);
+    }
+
+    .ops-tl-body {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .ops-tl-phase {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+    }
+
+    .ops-tl-item--done .ops-tl-phase {
+      color: var(--teal-light);
+    }
+
+    .ops-tl-desc {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.45);
     }
 
     /* Contact form feedback */
@@ -1829,67 +1900,92 @@
 
         <div class="hero-visual">
           <div class="ops-panel">
+
             <div class="ops-panel-header">
               <div class="ops-live-dot"></div>
-              <span class="ops-live-label">Live Operations</span>
-              <span class="ops-location">Ethiopian ICT Park · Addis Ababa</span>
+              <span class="ops-live-label">Competitive Edge</span>
+              <span class="ops-location">Why operators choose Ethiopia</span>
             </div>
 
-            <div class="ops-metrics-grid">
-              <div class="ops-metric">
-                <div class="ops-metric-icon">⚡</div>
-                <div class="ops-metric-val">10 MW</div>
-                <div class="ops-metric-lbl">Active Capacity</div>
+            <!-- Cost comparison bars -->
+            <div class="ops-section-title">Electricity Cost — $/kWh</div>
+            <div class="ops-bars">
+              <div class="ops-bar-row">
+                <span class="ops-bar-name ops-bar-name--highlight">ETxO · Ethiopia</span>
+                <div class="ops-bar-track">
+                  <div class="ops-bar-fill ops-bar-fill--highlight" style="width:14%"></div>
+                </div>
+                <span class="ops-bar-val ops-bar-val--highlight">$0.03</span>
               </div>
-              <div class="ops-metric">
-                <div class="ops-metric-icon">₿</div>
-                <div class="ops-metric-val">24/7</div>
-                <div class="ops-metric-lbl">Mining Uptime</div>
+              <div class="ops-bar-row">
+                <span class="ops-bar-name">Iceland</span>
+                <div class="ops-bar-track">
+                  <div class="ops-bar-fill" style="width:28%"></div>
+                </div>
+                <span class="ops-bar-val">$0.06</span>
               </div>
-              <div class="ops-metric">
-                <div class="ops-metric-icon">🌿</div>
-                <div class="ops-metric-val">100%</div>
-                <div class="ops-metric-lbl">Clean Hydro</div>
+              <div class="ops-bar-row">
+                <span class="ops-bar-name">Kazakhstan</span>
+                <div class="ops-bar-track">
+                  <div class="ops-bar-fill" style="width:38%"></div>
+                </div>
+                <span class="ops-bar-val">$0.05</span>
               </div>
-              <div class="ops-metric">
-                <div class="ops-metric-icon">💰</div>
-                <div class="ops-metric-val">~$0.03</div>
-                <div class="ops-metric-lbl">Per kWh</div>
+              <div class="ops-bar-row">
+                <span class="ops-bar-name">United States</span>
+                <div class="ops-bar-track">
+                  <div class="ops-bar-fill" style="width:65%"></div>
+                </div>
+                <span class="ops-bar-val">$0.09</span>
               </div>
             </div>
 
             <div class="ops-divider"></div>
 
-            <div class="ops-advantages">
-              <div class="ops-adv-item">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#00BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>45,000 MW untapped hydro reserve</span>
+            <!-- Carbon + Timeline pills -->
+            <div class="ops-pills">
+              <div class="ops-pill ops-pill--green">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17 8C8 10 5.9 16.17 3.82 19.07c-.38.55.14 1.2.71.9C7 18.5 9 17 12 17c3 0 5-1 7-3s3-5 3-8c0 0-1 .5-2 1-1 .5-2.5.5-3 1z"/></svg>
+                Near-zero carbon footprint
               </div>
-              <div class="ops-adv-item">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#00BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>30 MW+ expansion roadmap underway</span>
+              <div class="ops-pill ops-pill--teal">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm4.24 16L12 15.45 7.77 18l1.12-4.81-3.73-3.23 4.92-.42L12 5l1.92 4.53 4.92.42-3.73 3.23L16.23 18z"/></svg>
+                UTC+3 · Asia–Europe bridge
               </div>
-              <div class="ops-adv-item">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#00BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>HPC &amp; AI infrastructure ready</span>
-              </div>
-              <div class="ops-adv-item">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8L6.5 11.5L13 4.5" stroke="#00BCD4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                <span>Government-backed ICT Park facility</span>
+              <div class="ops-pill ops-pill--gold">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                Gov't-backed ICT Park
               </div>
             </div>
 
-            <div class="ops-footer">
-              <div class="ops-scale-bar">
-                <div class="ops-scale-label">
-                  <span>Current: 10 MW</span>
-                  <span>Target: 30 MW+</span>
+            <div class="ops-divider"></div>
+
+            <!-- Expansion timeline -->
+            <div class="ops-section-title">Expansion Roadmap</div>
+            <div class="ops-timeline">
+              <div class="ops-tl-item ops-tl-item--done">
+                <div class="ops-tl-dot ops-tl-dot--done"></div>
+                <div class="ops-tl-body">
+                  <span class="ops-tl-phase">Phase 1</span>
+                  <span class="ops-tl-desc">10 MW pilot · Active</span>
                 </div>
-                <div class="ops-scale-track">
-                  <div class="ops-scale-fill"></div>
+              </div>
+              <div class="ops-tl-item">
+                <div class="ops-tl-dot"></div>
+                <div class="ops-tl-body">
+                  <span class="ops-tl-phase">Phase 2</span>
+                  <span class="ops-tl-desc">30 MW scale-up</span>
+                </div>
+              </div>
+              <div class="ops-tl-item">
+                <div class="ops-tl-dot"></div>
+                <div class="ops-tl-body">
+                  <span class="ops-tl-phase">Phase 3</span>
+                  <span class="ops-tl-desc">HPC &amp; AI workloads</span>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
 
